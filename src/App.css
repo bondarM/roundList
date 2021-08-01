@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
+.roundlist{
+  width: 80%;
+  margin: auto;
+  padding-top: 50px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+td, th {
+  border: 1px solid #ececec;
+  padding: 8px;
+  cursor: pointer;  
+}
+th{
+  width: 50%
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+tr:hover {
+  background-color: #dddddd;
+}
+.open{
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.items__image{
+  height: 40px;
+  background-color: rgb(206, 206, 206);
+  vertical-align: middle;
+  padding:0 10px;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.roundlist__items{
+  margin-top: 30px;
+  width: fit-content;
+  background-color: rgb(235, 235, 235);
+border-top: 1px solid black;
+border-right: 1px solid black;
+display: none;
+}
+
+.item__4{
+  background-color: gray;
+  height: 41px;
+  border: none;
+}
+
+.active .roundlist__items{
+  display: block;
+}
+
+.item__position__0{
+  object-position: 0 -40px;
+}
+.item__position__1{
+  object-position: 0 20px;
+}
+.item__position__2{
+  object-position: 0 -21px;
+}
+.item__position__3{
+  object-position: 0 55px;
 }
