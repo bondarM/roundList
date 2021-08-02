@@ -3,7 +3,6 @@ import { RoundResult } from './RoundResult'
 
 export const RoundList = () => {
     const [rounds, setRounds] = useState([])
-    // const [itemsHeight, setItemsHeight] = useState("")
 
     useEffect(() => {
         getRounds()
@@ -21,6 +20,7 @@ export const RoundList = () => {
     }
 
 
+
     return (
         <div className="roundlist">
             <table>
@@ -29,9 +29,10 @@ export const RoundList = () => {
                     <th>Date</th>
                 </tr>
                 {rounds.map(round => (
-                        <RoundResult roundId={round.roundId} dateTime={round.dateTime} rounds={rounds} />
+                        <RoundResult roundId={round.roundId} key={round.dateTime} dateTime={round.dateTime} rounds={rounds} />
                 ))}
             </table>
+
         </div>
     )
 }

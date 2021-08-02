@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export const RoundResult = ({ rounds, children, roundId, dateTime }) => {
+export const RoundResult = ({roundId, dateTime }) => {
 
     const [open, setOpen] = useState(false)
     const [itemsBlock, setItemsBlock] = useState([])
@@ -14,11 +14,12 @@ export const RoundResult = ({ rounds, children, roundId, dateTime }) => {
                 let list = data.items.split(",")
                 let matrix = listToMatrix(list, list.length / data.height)
                 setItemsBlock(matrix);
+
             })
     }
 
 
-    function listToMatrix(list, elementsPerSubArray) {
+    const listToMatrix = (list, elementsPerSubArray) => {
         let matrix = [], i, k;
         for (i = 0, k = -1; i < list.length; i++) {
             if (i % elementsPerSubArray === 0) {
@@ -29,6 +30,9 @@ export const RoundResult = ({ rounds, children, roundId, dateTime }) => {
         }
         return matrix;
     }
+
+     
+
     return (
         <>
             <tr onClick={(e) => { infoRound(roundId); setOpen(!open) }} key={dateTime}>
@@ -39,8 +43,8 @@ export const RoundResult = ({ rounds, children, roundId, dateTime }) => {
             <div className={`${open ? "active" : ""}`}>
                 <div className="roundlist__items">
                     {itemsBlock.length ? itemsBlock.map((item, i) => {
-                        return <div className="roundlist__row">
 
+                        return <div className="roundlist__row">
                             {item.map((img, index) => {
                                 if (img == 4) {
                                     return <img key={index} className={`items__image item__4 item__position__${i}`} src={require(`../images/${img}.png`).default} />
@@ -50,7 +54,9 @@ export const RoundResult = ({ rounds, children, roundId, dateTime }) => {
                             })}
 
                         </div>
-                    }) : <div></div>}
+                    }) :
+                    <div className="spinner"></div> 
+                    }
                 </div>
             </div>
         </>
